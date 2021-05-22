@@ -1,0 +1,79 @@
+﻿<html>
+<head> 
+<script type="text/javascript" src="jquery-3.5.0.js"></script>
+        <div class="calculator">
+    <form class="calculator__form">
+        <div class="calculator__row">
+            <input class="calculator__display" id="display" type="text" disabled />
+        </div>
+        <div class="calculator__row">
+            <button type="button" value="c" class="calculator__key calculator__clear"></button>
+            <button type="button" value="<--" class="calculator__key calculator__backspace"></button>
+            <button type="button" value="+" class="calculator__key calculator__button"></button>
+        </div>
+        <div class="calculator__row">
+            <button type="button" value="9" class="calculator__key calculator__button"></button>
+            <button type="button" value="8" class="calculator__key calculator__button"></button>
+            <button type="button" value="7" class="calculator__key calculator__button"></button>
+            <button type="button" value="-" class="calculator__key calculator__button"></button>
+        </div>
+        <div class="calculator__row">
+            <button type="button" value="6" class="calculator__key calculator__button"></button>
+            <button type="button" value="5" class="calculator__key calculator__button"></button>
+            <button type="button" value="4" class="calculator__key calculator__button"></button>
+            <button type="button" value="*" class="calculator__key calculator__button"></button>
+        </div>
+        <div class="calculator__row">
+            <button type="button" value="3" class="calculator__key calculator__button"></button>
+            <button type="button" value="2" class="calculator__key calculator__button"></button>
+            <button type="button" value="1" class="calculator__key calculator__button"></button>
+            <button type="button" value="/" class="calculator__key calculator__button"></button>
+        </div>
+        <div class="calculator__row">
+            <button type="button" value="0" class="calculator__key calculator__button"></button>
+            <button type="button" value="." class="calculator__key calculator__button"></button>
+            <button type="button" value="=" class="calculator__key calculator__key--equal"></button>
+        </div>
+    </form>
+</div>
+ 
+  <script>
+  $(document).ready(function () {
+    var calc = $('.calculator');
+    var calcDisplay = calc.find('.calculator__display');
+    var calcKeys = calc.find('.calculator__key');
+    var calcButton = calc.find('.calculator__button');
+    var calcClear = calc.find('.calculator__clear');
+    var calcEqual = calc.find('.calculator__key--equal');
+    var calcPower = calc.find('.calculator__power');
+    var calcSpace = calc.find('.calculator__backspace');
+ 
+    calcKeys.each(function () {
+        var current = $(this).attr('value');
+        $(this).text(current);
+    });
+ 
+    calcButton.on('click', function () {
+        calcDisplay.val( calcDisplay.val() + $(this).attr('value') );
+    });
+ 
+    calcClear.on('click', function () {
+        calcDisplay.val('');
+    });
+ 
+    calcEqual.on('click', function () {
+        calcDisplay.val( eval( calcDisplay.val() ) );
+    });
+ 
+    calcPower.on('click', function () {
+        calcDisplay.val( Math.pow( calcDisplay.val(), 3 ) );
+    });
+ 
+    calcSpace.on('click', function () { 
+        calcDisplay.val( calcDisplay.val().substring(0, calcDisplay.val().length-1) );
+    });
+ 
+});
+    </script>
+ </head>
+</html>

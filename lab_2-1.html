@@ -1,0 +1,31 @@
+﻿<!DOCTYPE HTML><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Поменять цвет фона страницы(jQuery)</title>
+
+<script type="text/javascript" src="jquery-3.5.0.js">
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#background_change').click(function(){
+		$('#layer').css('backgroundColor', '#FFB6C1');
+	})
+});
+</script>
+
+<style type="text/css">
+#layer {
+border:#FFB6C1 1px solid;
+  height:1080px;
+  width:1920px;
+}
+</style>
+
+</head><body>
+
+<input type="button" value="Поменять цвет фона страницы" id="background_change">
+
+<div id="layer"></div>
+
+</body></html>

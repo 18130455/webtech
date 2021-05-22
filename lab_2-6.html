@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="jquery-3.5.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#container div a").click(function() {
+        $(this).parent().animate({
+           width: '+=100px'
+        }, 500);
+ 
+        $(this).prev().html(parseInt($(this).prev().html()) + 1);
+        return false;
+    });
+});
+</script>
+<style type="text/css">
+    * {
+        font-family: Arial, "Free Sans";
+    }
+    #container {
+        margin-top: 20px;
+        color: #FF0000;
+    }
+    #container #question {
+        display: block;
+        padding: 20px;
+        font-weight: bold;
+        letter-spacing: -3px;
+        margin-bottom: 20px;
+        padding: 10px;
+        font-size: 40px;
+    }
+    #container div {
+        font-weight: bold;
+        letter-spacing: -3px;
+        background: #FF0000;
+        margin-bottom: 15px;
+        padding: 10px;
+        font-size: 34px;
+        color: #ffffff;
+        border-left: 20px solid #333;
+        width: 600px;
+        -webkit-border-radius: 0.5em;
+        -moz-border-radius: 0 0.5em 0.5em 0;
+        border-radius: 0 1.5em 1.5em 0;
+    }
+    #container div a {
+        border-radius: 0.3em;
+        text-decoration: none;
+        color: #FF0000;
+        padding: 5px 15px;
+        background: #333;
+        margin: 0 20px;
+    }
+    #container div a:hover {
+        color: #FF0000;
+    }
+    
+</style>
+</head>
+<body>
+  <div id="container">
+      <div id="question">Вы замечтаете, что стали более раздражительны?</div>
+      <div><span>0</span><a href="">Проголосовать</a>Сейчас я раздражителен не более, чем обычно</div>
+      <div><span>0</span><a href="">Проголосовать</a>Я более легко раздражаюсь, чем раньше</div>
+      <div><span>0</span><a href="">Проголосовать</a>Теперь я постоянно чувствую, что раздражен</div>
+      <div><span>0</span><a href="">Проголосовать</a>Я стал равнодушен к вещам, которые раньше меня раздражали</div>
+      <div><span>0</span><a href="">Проголосовать</a>Меня раздражает красный цвет</div>
+  </div>
+</body>
+</html>

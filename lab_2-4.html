@@ -1,0 +1,11 @@
+﻿<script type="text/javascript" src="jquery-3.5.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+$("html").mousemove(function (pos) {
+$("#p1").html('Абсолютные координаты: По оси X:'+pos.pageX+', По оси Y:'+pos.pageY);
+});
+
+});
+</script>
+<p id="p1"></p>
