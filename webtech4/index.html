@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лосева</title>
+  <link rel="stylesheet" href="jq/jquery-ui.min.css">
+  <link rel="stylesheet" href="jq/jquery-ui.structure.min.css">
+  <link rel="stylesheet" href="jq/jquery-ui.theme.min.css">
+  <link rel="stylesheet" href="jq/jquery-confirm.min.css">
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+
+  </head>
+<body> 
+<h1 align="center"><font color="MediumPurple" face="Corbel Light"> Away from today </h1>
+  <div class="wrap">
+    <div id="tabs">
+      <ul>
+        <li> Авиаперелеты внутренних рейсов </li>
+		<h2 align="width"> С приходом пандемии закрытие авиасообщения между странами, введение обязательного карантина для туристов и многие другие факторы оказали существенное влияние на туристическую отрасль. Однако это вовсе не означает, что туризм умер — он жив, но отныне будет не таким, к которому мы привыкли. </h2>
+		<h2 align="width"> Тренд этого года — внутренний туризм с элементами развивающейся на глазах инфраструктурой (так как её нет). Пандемия внесла корректировки в наш отдых, и как у любого кризиса от большого минуса есть большой плюс — начинается зарождаться внутренний туризм. Главная задача — сделать это экологично , современно и с перспективой. </h2>
+		<p> AFT предоставляет услуги воздушных перевозок по следующим направлениям: Москва, Санкт-Петербург, Уфа, Крым, Сочи </p>
+        <li data-price="5000"><a href="#tabs" title="Фиксированная цена на все билеты 5000р" >Для покупки билета заполните форму ниже </a></li>
+      </ul>
+      <div id="main">
+      </div>
+      <div id="tabs">
+      </div>
+    </div>
+
+    <div class="params">
+      <form action="" id='validform' class='validform'><p> Введите ФИО: </p>
+      <input type="text" id="fio" class="putName" placeholder="Лосева Дарья Константиновна">
+      
+      <script>function handle() {
+  var rep = document.getElementById('fio');
+  rep.value = rep.value.replace(/[^А-Яа-яЁё ]/g, "");
+}
+var input = document.getElementById('fio');
+input.onkeydown = input.onkeyup = input.onkeypress = handle;</script>
+      <p> Введите E-mail: </p>
+       <input class="text-input" type="email" id="emailaddress" name="emailaddress">
+       
+
+      <p> Укажите Ваш пол: </p>
+		<select name="sex" >
+		<option value="m"> Мужской </option>
+		<option value="f"> Женский </option>
+		</select>
+		<p> Укажите серию и номер паспорта: </p>
+		<input type="text" class="pasp" placeholder="8722 085903">
+		<script src="jq/jquery.js"></script>
+		<script src="jq/jquery.maskedinput.min.js"></script>
+		<script>
+		$('.pasp').mask('99-99 999999');
+		</script>
+	   <p>Дата отправления: <input type="text" id="datepicker"></p>
+      <p><label for="from">Пункт отправления:</label></p>
+      <select name="from" id="from">
+	    <option selected="selected">Уфа</option>
+<option>Сочи</option>        
+<option>Москва</option>
+        <option>Санкт-Петербург</option>
+        <option>Крым</option>
+      </select>
+
+     <p> <label for="to">Пункт назначения:</label></p>
+      <select name="to" id="to">
+        <option>Уфа</option>
+        <option selected="selected">Сочи</option>
+        <option>Санкт-Петербург</option>
+        <option>Крым</option>
+        <option>Москва</option>
+      </select>
+
+      <p id="people">Количество бронируемых билетов:</p>
+      <div id="slider">
+        <div id="custom-handle" class="ui-slider-handle"></div>
+      </div>
+	  <p>Стоимость вашего путешествия:</p>
+        <div id="total"></div>
+		
+        <div id="boxes"><p>Дополнительные услуги: </p>
+   <input type="checkbox" data-exval="5000">Ручная кладь <Br>
+   <input type="checkbox" data-exval="10000">Дополнительное место для багажа <Br>
+   <input type="checkbox" data-exval="5000">Доплата за перевес <Br> 
+   <input type="checkbox" data-exval="1000">Упаковка багажа <Br> </div>
+   <p>Стоимость добавленных услуг: </p>
+        <div  id="result"></div>
+	
+		<!--<button id="buy" disabled>Купить билеты</button>-->
+		<input id="btn-reset" type="button" value="Купить билеты" class="btn-disabled btn-reset button button-RosyBrown" disabled="true">
+	</form>
+
+      <div id="dialog-confirm" title="Проверка">
+        <p><span class="ui-icon ui-icon-alert" style="float:center; margin:12px 12px 20px 0;"></span>Данные сохранены. Хотите продолжить?</p>
+      </div>
+	
+      <div id="dialog">
+        <p>Ваша заявка отправлена. Оператор свяжется с Вами в течении часа.</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script src="jq/jquery.js"></script>
+<script src="jq/jquery-ui.min.js"></script>
+<script src="jq/jquery.jcarousel.min.js"></script>
+<script src="jq/jquery-confirm.min.js"></script>
+<script type="text/javascript" src="validate.js"></script>
+<script type="text/javascript" src="jquery.mask.min.js"></script>
+<script src="main.js"></script>
+</html>

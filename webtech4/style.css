@@ -1,0 +1,58 @@
+body {
+    background: url(imgs/1.jpg); 
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat; 
+	background-attachment: fixed; 
+		}
+
+#custom-handle {
+  width: 3em;
+  height: 1.6em;
+  top: 50%;
+  margin-top: -.8em;
+  text-align: center;
+  line-height: 1.6em;
+
+}
+
+.params{
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+}
+
+.wrap{
+  background-color: white;
+  max-width: 800px;
+  margin: auto;
+}
+
+#tabs {
+  margin: 20px auto;
+}
+
+#tabs ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#tabs > ul > li {
+  margin: 1px;
+}
+
+#itog{
+  font-size: 100px;
+}
+
+
+input:invalid {
+  border: 2px dashed red;
+}
+
+input:valid {
+  border: 2px solid black;
+}
