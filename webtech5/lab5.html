@@ -1,0 +1,114 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Лосева</title>
+
+<style>
+
+#shapka {text-align: center}
+#field {width: 20px; border: none; background-color: white;}
+#min {width: 100px; height: 100px; line-height: 170px; border: 9px solid #ccccff; color: #eebef1; margin-left: 23%; text-align: left; font-size: 30pt}
+#max {width: 100px; height: 100px; line-height: 170px; border: 9px solid #ccccff; color: #eebef1; margin-left: 23%; text-align: left; font-size: 30pt}
+
+table {
+    width: 1000px;
+}
+
+td {
+    border: solid 1px;
+}
+
+.container {
+    width: 1000px;
+    height: 1000px;
+    overflow: scroll;
+    margin: auto;
+}
+   
+</style>
+
+<script type="text/javascript">
+
+function rand(min, max)
+{
+	max = max || false;
+	min = min || 255;
+	
+	if (max)
+	{
+		return Math.floor(Math.random()*(max-min+1))+min;
+	}
+	else
+	{
+		return Math.floor(Math.random()*(min+1));
+	}
+}
+
+	var limit = +prompt("Колличество элементов массива");	
+	var min = +prompt("Минимальное значение элемента массива");
+	var max = +prompt("Максимальное значение элемента массива");
+	var num = +prompt("Количество массивов");
+	var time = +prompt("Время обновления массива");
+function array_fill_random(limit, num, min, max)
+{
+	var arr=[];
+	for (var i = 0; i < limit; i++)	{
+	arr[i] = [];
+	    for (var j = 0; j < num; j++) {
+  		arr[i][j] = rand(min, max);   
+  	}}
+  		return arr;
+}
+
+function test()
+{
+	var arr = array_fill_random(limit, num, min, max);
+	min = arr[0][0];
+	max = min;
+	for (var i = 0; i < arr.length; ++i) {
+	for (var j = 0; j < arr.length; ++j) {
+      if (arr[i][j] > max) max = arr[i][j];
+      if (arr[i][j] < min) min = arr[i][j];
+  }}
+  
+  
+     var table = document.querySelector('#table');
+
+fillTable(table, arr);
+
+function fillTable(table, arr) {
+    for (var i = 0; i < arr.length; i++) {
+        var tr = document.createElement('tr');
+        
+        for (var j = 0; j < arr[i].length; j++) {
+            var td = document.createElement('td');
+            td.innerHTML = arr[i][j];
+            tr.appendChild(td);
+        }
+        table.appendChild(tr);
+    }
+}
+ 
+    document.getElementById('min').innerHTML = min;
+	document.getElementById('max').innerHTML = max;
+	}
+
+	
+setInterval(test, time*1000);	
+</script>
+
+</head>
+
+<body onload="test()">
+
+<h1 id="shapka">
+<a>Поиск наибольшего значения в массиве произвольной длинны</a>
+</h1>
+<div class="container">
+<table id="table" align="center"></table>
+</div>
+<h1 id="shapka">Минимальный элемент: <div id="min"></div></h1>
+<h1 id="shapka">Максимальный элемент: <div id="max"></div></h1>
+
+</body>
+</html>
